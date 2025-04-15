@@ -1,3 +1,4 @@
+//Basic web server which opens, listens at port 8080 and closes after serving single client
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;

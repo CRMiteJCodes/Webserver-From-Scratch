@@ -1,3 +1,4 @@
+//listens for multiple clients(one at a time - still single threaded) and stops when entered exit
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;

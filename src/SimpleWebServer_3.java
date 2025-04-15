@@ -1,3 +1,4 @@
+//listens for multiple clients simultaneously(multi-threaded) and stops when entered exit
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -32,7 +33,6 @@ public class SimpleWebServer_3{
         while(running){
             try{
                 Socket client = server.accept();
-                System.out.println("New client connected");
                 new Thread(() -> handleClient(client)).start();
             }
             catch(Exception e){
