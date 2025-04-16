@@ -31,8 +31,16 @@ public class Server_4{
         consoleThread.start();
 
         while(running){
-            Socket client = server.accept();
-            new Thread(()-> handleClient(client)).start();
+            try{
+                Socket client = server.accept();
+                new Thread(() -> handleClient(client)).start();
+            }
+            catch(Exception e){
+                if(running)
+                System.out.println("Error handling client "+e.getMessage());
+                else
+                System.out.println("Server stopped");
+            }
         }
     }
     private static void handleClient(Socket client){
