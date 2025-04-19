@@ -57,9 +57,11 @@ public class Server_4{
             System.out.println("Request: "+requestLine);
             //parse with path default to "/index.html"
             String[] parts = requestLine.split(" ");
-            String path = parts[1].equals("/")?"index.html":parts[1];
 
-            //remove leading /and join with public folder
+            //Even if the client just requests only the root(localhost:8080/) then the default index.html will be returned by default else whtever the path is
+            String path = parts[1].equals("/")?"/index.html":parts[1];
+
+            //remove leading / and join with public folder
             Path filePath = Paths.get("public", path.substring(1));
 
             if(Files.exists(filePath) && !Files.isDirectory(filePath)){
