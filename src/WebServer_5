@@ -68,11 +68,14 @@ public class WebServer_5{
             //Routing Logic
             if(path.equals("/hello")){
                 body = "<h1>Current Time</h1>";
+                sendResponse(out, 200, contentType, body.getBytes());
             }
             else if(path.equals("/time")){
                 body = "<h1>The Time is: "+ LocalDateTime.now() + "</h1>";
+                sendResponse(out, 200, contentType, body.getBytes());
             }
             else if(path.equals("/")){
+                Path filePath = Paths.get("public", "index.html");
                 if(Files.exists(filePath)){
                     byte[] content = Files.readAllBytes(filePath);
                     sendResponse(out, 200, contentType, content);
@@ -80,10 +83,12 @@ public class WebServer_5{
                 }
                 else{
                     body = "<h1>index.html not found!</h1>";
+                    sendResponse(out, 200, contentType, body.getBytes());
                 }
             }
             else{
                 body = "<h1>404 - Page NOT Found</h1>";
+                sendResponse(out, 200, contentType, body.getBytes());
             }
         catch(Exception e){
         System.out.println("Error :"+e.getMessage());
