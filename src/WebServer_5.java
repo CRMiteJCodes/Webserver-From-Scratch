@@ -78,7 +78,7 @@ public class WebServer_5{
                 Path filePath = Paths.get("public", "index.html");
                 if(Files.exists(filePath)){
                     byte[] content = Files.readAllBytes(filePath);
-                    sendResponse(out, 404, contentType, content);
+                    sendResponse(out, 200, contentType, content);
                     return;
                 }
                 else{
@@ -88,8 +88,9 @@ public class WebServer_5{
             }
             else{
                 body = "<h1>404 - Page NOT Found</h1>";
-                sendResponse(out, 200, contentType, body.getBytes());
+                sendResponse(out, 404, contentType, body.getBytes());
             }
+        }
         catch(Exception e){
         System.out.println("Error :"+e.getMessage());
         }
