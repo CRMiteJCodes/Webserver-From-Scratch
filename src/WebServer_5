@@ -78,12 +78,12 @@ public class WebServer_5{
                 Path filePath = Paths.get("public", "index.html");
                 if(Files.exists(filePath)){
                     byte[] content = Files.readAllBytes(filePath);
-                    sendResponse(out, 200, contentType, content);
+                    sendResponse(out, 404, contentType, content);
                     return;
                 }
                 else{
                     body = "<h1>index.html not found!</h1>";
-                    sendResponse(out, 200, contentType, body.getBytes());
+                    sendResponse(out, 404, contentType, body.getBytes());
                 }
             }
             else{
