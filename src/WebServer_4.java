@@ -4,7 +4,7 @@ import java.net.Socket;
 import java.nio.file.*;
 import java.util.Scanner;
 
-public class Server_4{
+public class WebServer_4{
     private static volatile boolean running=true;
     public static void main(String[] args)throws Exception{
         ServerSocket server = new ServerSocket(8080);

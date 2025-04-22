@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Server_5{
+public class WebServer_5{
     private static volatile boolean running=true;
     public static void main(String[] args)throws Exception{
         ServerSocket server = new ServerSocket(8080);
