@@ -10,7 +10,7 @@ public class WebServer_5{
     private static volatile boolean running=true;
     public static void main(String[] args)throws Exception{
         ServerSocket server = new ServerSocket(8080);
-        System.out.println("Static file Server running at http://localhost:8080/index.html");
+        System.out.println("Router Server running at http://localhost:8080");
 
         Thread consoleThread = new Thread(()-> {
             Scanner scan=new Scanner(System.in);
@@ -67,7 +67,7 @@ public class WebServer_5{
 
             //Routing Logic
             if(path.equals("/hello")){
-                body = "<h1>Current Time</h1>";
+                body = "<h1>Hello World! Your request has successfully reached the backend</h1>";
                 sendResponse(out, 200, contentType, body.getBytes());
             }
             else if(path.equals("/time")){
